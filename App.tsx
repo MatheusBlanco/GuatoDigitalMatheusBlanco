@@ -12,7 +12,7 @@ import {
   Inter_900Black,
   useFonts,
 } from '@expo-google-fonts/inter';
-import { SafeAreaView, StatusBar, useColorScheme } from 'react-native';
+import { SafeAreaView, useColorScheme } from 'react-native';
 import 'react-native-gesture-handler';
 import { ThemeProvider } from 'styled-components';
 
@@ -34,7 +34,6 @@ function App() {
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <ThemeProvider theme={colorScheme === 'dark' ? darkStyles : lightStyles}>
-        <StatusBar animated={true} backgroundColor="transparent" />
         <DrawerNavigation />
       </ThemeProvider>
     </SafeAreaView>
