@@ -1,4 +1,4 @@
-import Router from '@/routes';
+import { DrawerNavigation } from '@/routes/Drawer';
 import { darkStyles, lightStyles } from '@/styles/theme';
 import {
   Inter_100Thin,
@@ -12,8 +12,11 @@ import {
   Inter_900Black,
   useFonts,
 } from '@expo-google-fonts/inter';
-import { useColorScheme } from 'react-native';
+import Constants from 'expo-constants';
+import { SafeAreaView, StatusBar, useColorScheme } from 'react-native';
+import 'react-native-gesture-handler';
 import { ThemeProvider } from 'styled-components';
+const statusBarHeight = Constants.statusBarHeight;
 
 function App() {
   const colorScheme = useColorScheme();
@@ -31,9 +34,12 @@ function App() {
   });
 
   return (
-    <ThemeProvider theme={colorScheme === 'dark' ? darkStyles : lightStyles}>
-      <Router />
-    </ThemeProvider>
+    <SafeAreaView style={{ flex: 1 }}>
+      <ThemeProvider theme={colorScheme === 'dark' ? darkStyles : lightStyles}>
+        <StatusBar animated={true} backgroundColor="transparent" />
+        <DrawerNavigation />
+      </ThemeProvider>
+    </SafeAreaView>
   );
 }
 

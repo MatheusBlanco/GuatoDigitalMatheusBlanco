@@ -4,7 +4,7 @@ import { StyledMainContainer } from '@/components/StyledComponents/StyledMainCon
 import { StyledText } from '@/components/StyledComponents/StyledText';
 import { RootStackParamList } from '@/types';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { Appearance, Button, useColorScheme, View } from 'react-native';
+import { View } from 'react-native';
 import styled from 'styled-components/native';
 
 export function Home({
@@ -12,9 +12,6 @@ export function Home({
 }: {
   navigation: NativeStackNavigationProp<RootStackParamList, 'Home'>;
 }) {
-  const colorScheme = useColorScheme();
-  const { setColorScheme } = Appearance;
-
   return (
     <Container>
       <StyledMainContainer>
@@ -34,17 +31,6 @@ export function Home({
             navigation={navigation}
           />
         </StyledView>
-      </StyledMainContainer>
-      <StyledMainContainer>
-        <StyledText>Cores e fontes globais, {colorScheme}</StyledText>
-        <Button
-          title="settar tema"
-          onPress={() => {
-            if (colorScheme === 'dark') setColorScheme('light');
-            else setColorScheme('dark');
-          }}
-        ></Button>
-        <Button title="Go to Details" onPress={() => navigation.navigate('Details')} />
       </StyledMainContainer>
     </Container>
   );
