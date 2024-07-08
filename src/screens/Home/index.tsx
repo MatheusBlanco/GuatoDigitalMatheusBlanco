@@ -29,6 +29,9 @@ export function Home({
               throw new Error('Function not implemented.');
             }}
             navigation={navigation}
+            placeholder={'Search what you need...'}
+            value={''}
+            onChange={(v) => console.log(v)}
           />
         </StyledView>
       </StyledMainContainer>

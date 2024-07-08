@@ -12,11 +12,9 @@ import {
   Inter_900Black,
   useFonts,
 } from '@expo-google-fonts/inter';
-import Constants from 'expo-constants';
 import { SafeAreaView, StatusBar, useColorScheme } from 'react-native';
 import 'react-native-gesture-handler';
 import { ThemeProvider } from 'styled-components';
-const statusBarHeight = Constants.statusBarHeight;
 
 function App() {
   const colorScheme = useColorScheme();
