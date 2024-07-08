@@ -46,17 +46,6 @@ export function Home({
         ></Button>
         <Button title="Go to Details" onPress={() => navigation.navigate('Details')} />
       </StyledMainContainer>
-      <StyledMainContainer>
-        <StyledText>Cores e fontes globais, {colorScheme}</StyledText>
-        <Button
-          title="settar rola"
-          onPress={() => {
-            if (colorScheme === 'dark') setColorScheme('light');
-            else setColorScheme('dark');
-          }}
-        ></Button>
-        <Button title="Go to Details" onPress={() => navigation.navigate('Details')} />
-      </StyledMainContainer>
     </Container>
   );
 }
