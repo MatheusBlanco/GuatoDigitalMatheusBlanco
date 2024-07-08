@@ -1,6 +1,7 @@
 import { Feather, FontAwesome5, MaterialIcons } from '@expo/vector-icons';
 import { Appearance, useColorScheme, View } from 'react-native';
 import styled, { useTheme } from 'styled-components/native';
+import { SimpleFlexRow } from '../StyledComponents/SimpleFlex';
 import { StyledButton } from '../StyledComponents/StyledButton';
 import { StyledText } from '../StyledComponents/StyledText';
 
@@ -12,17 +13,17 @@ export const Footer = () => {
   return (
     <DrawerFooter>
       <View>
-        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+        <SimpleFlexRow>
           <DrawerFooterDivider />
-        </View>
-        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
+        </SimpleFlexRow>
+        <SimpleFlexRow style={{ gap: 12 }}>
           <FontAwesome5
             name="question-circle"
             size={20}
             color={theme.colors.text.themeConditional.seventh}
           />
           <StyledText color="seventh">Colour Scheme</StyledText>
-        </View>
+        </SimpleFlexRow>
       </View>
       <DrawerFooterColorSwitcherContainer>
         <StyledButton
@@ -30,24 +31,24 @@ export const Footer = () => {
           type="theme-switcher"
           callback={() => setColorScheme('light')}
         >
-          <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+          <SimpleFlexRow style={{ gap: 8 }}>
             <MaterialIcons
               name="wb-sunny"
               size={21}
               color={theme.colors.text.themeConditional.primary}
             />
             <StyledText>Light</StyledText>
-          </View>
+          </SimpleFlexRow>
         </StyledButton>
         <StyledButton
           selected={colorScheme === 'dark'}
           type="theme-switcher"
           callback={() => setColorScheme('dark')}
         >
-          <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+          <SimpleFlexRow style={{ gap: 8 }}>
             <Feather name="moon" size={21} color={theme.colors.text.themeConditional.primary} />
             <StyledText>Dark</StyledText>
-          </View>
+          </SimpleFlexRow>
         </StyledButton>
       </DrawerFooterColorSwitcherContainer>
     </DrawerFooter>

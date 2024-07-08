@@ -1,54 +1,88 @@
 import { RootStackParamList } from '@/types';
 import AntDesign from '@expo/vector-icons/build/AntDesign';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { useState } from 'react';
 import { TouchableOpacity } from 'react-native';
 import styled, { useTheme } from 'styled-components/native';
+import { SimpleFlexColumn, SimpleFlexRow } from './SimpleFlex';
+import { StyledText } from './StyledText';
 
 interface Props {
-  callback: () => void;
+  type?: 'search' | 'formType';
+  callback?: () => void;
   hasGoBack?: boolean;
   goBackCallback?: () => void;
-  navigation: NativeStackNavigationProp<RootStackParamList, 'Home'>;
+  navigation?: NativeStackNavigationProp<RootStackParamList, 'Home'>;
+  placeholder: string;
+  label?: string;
+  leftIcon?: boolean;
+  icon?: React.ReactNode;
+  value: string;
+  onChange: (arg: any) => void;
 }
 
-export const StyledInput = ({ callback, hasGoBack = false, goBackCallback, navigation }: Props) => {
-  const [text, onChangeText] = useState('');
+export const StyledInput = ({
+  type = 'search',
+  callback,
+  hasGoBack = false,
+  goBackCallback,
+  navigation,
+  placeholder,
+  label = '',
+  leftIcon = false,
+  icon = null,
+  value,
+  onChange,
+}: Props) => {
   const theme = useTheme();
-  return (
-    <StyledInputBox>
-      <StyledFlex>
-        {hasGoBack && (
-          <TouchableOpacity onPress={() => goBackCallback || navigation.goBack()}>
-            <AntDesign
-              name="arrowleft"
-              size={24}
-              color={theme.colors.text.themeConditional.fifth}
+  switch (type) {
+    case 'search':
+      return (
+        <StyledSearchInput>
+          <SimpleFlexRow style={{ gap: 18 }}>
+            {hasGoBack && (
+              <TouchableOpacity onPress={() => goBackCallback || navigation?.goBack()}>
+                <AntDesign
+                  name="arrowleft"
+                  size={24}
+                  color={theme.colors.text.themeConditional.fifth}
+                />
+              </TouchableOpacity>
+            )}
+            <StyledInputC
+              placeholder={placeholder}
+              color={theme.colors.text.fixed.secondary}
+              placeholderTextColor={theme.colors.text.fixed.secondary}
+              onChangeText={onChange}
+              value={value}
             />
-          </TouchableOpacity>
-        )}
-        <StyledInputC
-          placeholder="Search what you need..."
-          placeholderTextColor={theme.colors.text.fixed.secondary}
-          onChangeText={onChangeText}
-          value={text}
-        />
-      </StyledFlex>
-      <StyledTouchableOpacity onPress={callback}>
-        <AntDesign name="search1" size={14} color="white" />
-      </StyledTouchableOpacity>
-    </StyledInputBox>
-  );
+          </SimpleFlexRow>
+          <StyledTouchableOpacity onPress={callback}>
+            <AntDesign name="search1" size={14} color="white" />
+          </StyledTouchableOpacity>
+        </StyledSearchInput>
+      );
+    case 'formType':
+      return (
+        <SimpleFlexColumn style={{ gap: 8 }}>
+          <StyledText fontWeight={600} fontSize={15}>
+            {label}
+          </StyledText>
+          <StyledInputBox>
+            {leftIcon && <>{icon}</>}
+            <StyledInputC
+              color={theme.colors.text.themeConditional.primary}
+              placeholder={placeholder}
+              placeholderTextColor={theme.colors.text.fixed.secondary}
+              onChangeText={onChange}
+              value={value}
+            />
+          </StyledInputBox>
+        </SimpleFlexColumn>
+      );
+  }
 };
 
-const StyledFlex = styled.View`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 18px;
-`;
-
-const StyledInputBox = styled.View`
+const StyledSearchInput = styled.View`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -70,6 +104,20 @@ const StyledTouchableOpacity = styled.TouchableOpacity`
   background: ${({ theme }) => theme.colors.background.fixed.violet};
 `;
 
-const StyledInputC = styled.TextInput`
-  color: ${({ theme }) => theme.colors.text.fixed.secondary};
+const StyledInputC = styled.TextInput<{ color: 'primary' | 'secondary' }>`
+  color: ${({ color }) => color};
+  font-size: 14px;
+  font-weight: 600;
+  width: 70%;
+`;
+
+const StyledInputBox = styled.View`
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  align-items: center;
+  border-radius: 8px;
+  height: 45px;
+  padding: 12px;
+  background: ${({ theme }) => theme.colors.background.seventh};
 `;

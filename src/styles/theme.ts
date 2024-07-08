@@ -4,6 +4,7 @@ const fixedTheme = {
       fixed: {
         violet: '#6759FF',
         gray: '#D1D3D420',
+        pink: '#CABDFF',
       },
     },
     text: {
@@ -31,6 +32,7 @@ export const lightStyles = {
       fourth: '#6759FF',
       fifth: '#FFFFFF',
       sixth: '#FFFFFF26',
+      seventh: '#F5F5F5',
     },
     border: {
       primary: '#F2F2F2',
@@ -64,6 +66,7 @@ export const darkStyles = {
       fourth: '#18202E',
       fifth: '#2F3643',
       sixth: '#29303C',
+      seventh: '#2F3643',
     },
     border: {
       primary: '#F2F2F210',
