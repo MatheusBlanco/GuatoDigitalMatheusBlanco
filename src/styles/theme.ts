@@ -3,12 +3,14 @@ const fixedTheme = {
     background: {
       fixed: {
         violet: '#6759FF',
+        gray: '#D1D3D420',
       },
     },
     text: {
       fixed: {
         primary: '#9A9FA5',
         secondary: '#9B9E9F',
+        white: '#FFFFFF',
       },
     },
   },
@@ -26,6 +28,9 @@ export const lightStyles = {
       primary: '#F9F9F9',
       secondary: '#FFFFFF',
       tertiary: '#FBFBFB',
+      fourth: '#6759FF',
+      fifth: '#FFFFFF',
+      sixth: '#FFFFFF26',
     },
     border: {
       primary: '#F2F2F2',
@@ -38,6 +43,10 @@ export const lightStyles = {
         tertiary: '#172B4D',
         fourth: '#666C89',
         fifth: '#0F1621',
+        sixth: '#6759FF',
+        seventh: '#FFFFFF',
+        eighth: '#D1D3D4',
+        ninth: '#FFFFFF',
       },
     },
   },
@@ -52,6 +61,9 @@ export const darkStyles = {
       primary: '#0F1621',
       secondary: '#18202E',
       tertiary: '#1A2332',
+      fourth: '#18202E',
+      fifth: '#2F3643',
+      sixth: '#29303C',
     },
     border: {
       primary: '#F2F2F210',
@@ -64,6 +76,10 @@ export const darkStyles = {
         tertiary: '#FFFFFF',
         fourth: '#D1D3D4',
         fifth: '#FFFFFF',
+        sixth: '#FFFFFF',
+        seventh: '#D1D3D4',
+        eighth: '#6F767E',
+        ninth: '#FFFFFF',
       },
     },
   },

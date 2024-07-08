@@ -26,7 +26,7 @@ function DetailsScreen({
 
 const Stack = createNativeStackNavigator();
 
-function Router() {
+export function StackNavigation() {
   const theme = useTheme();
   return (
     <NavigationContainer>
@@ -51,5 +51,3 @@ function Router() {
     </NavigationContainer>
   );
 }
-
-export default Router;
