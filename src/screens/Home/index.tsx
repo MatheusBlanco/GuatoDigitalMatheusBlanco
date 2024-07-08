@@ -38,7 +38,7 @@ export function Home({
       <StyledMainContainer>
         <StyledText>Cores e fontes globais, {colorScheme}</StyledText>
         <Button
-          title="settar rola"
+          title="settar tema"
           onPress={() => {
             if (colorScheme === 'dark') setColorScheme('light');
             else setColorScheme('dark');
