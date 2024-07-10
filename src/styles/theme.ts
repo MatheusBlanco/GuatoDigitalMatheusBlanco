@@ -7,15 +7,18 @@ const fixedTheme = {
         pink: '#CABDFF',
         green: '#B5E4CA',
         yellow: '#FFC554',
+        white: '#fff',
       },
     },
     text: {
       fixed: {
         primary: '#9A9FA5',
+        darkerGreen: '#6A9B7E',
         secondary: '#9B9E9F',
         white: '#FFFFFF',
         dark: '#1A1D1F',
         gray: '#6F767E',
+        darkGray: '#33383F',
       },
     },
   },

@@ -11,7 +11,7 @@ interface Props {
   type?: 'search' | 'formType';
   callback?: () => void;
   hasGoBack?: boolean;
-  goBackCallback?: () => void;
+  goBackRoute?: string;
   navigation?: DrawerNavigationProp<ParamListBase, string, undefined>;
   placeholder: string;
   label?: string;
@@ -25,7 +25,7 @@ export const StyledInput = ({
   type = 'search',
   callback,
   hasGoBack = false,
-  goBackCallback,
+  goBackRoute,
   navigation,
   placeholder,
   label = '',
@@ -43,8 +43,8 @@ export const StyledInput = ({
             {hasGoBack && (
               <TouchableOpacity
                 onPress={() => {
-                  if (goBackCallback !== undefined) {
-                    goBackCallback;
+                  if (goBackRoute !== undefined) {
+                    navigation?.navigate(goBackRoute);
                   } else {
                     navigation?.goBack();
                   }

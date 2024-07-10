@@ -13,3 +13,10 @@ export type ServiceItemType = {
   urlImage: string;
   id: string;
 };
+
+export type OfferType = {
+  id: number;
+  title: string;
+  bgColor: string;
+  offerPercentage: number;
+};

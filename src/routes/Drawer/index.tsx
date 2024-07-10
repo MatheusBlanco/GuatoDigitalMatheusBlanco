@@ -98,6 +98,7 @@ export function DrawerNavigation(props: NavProps) {
                 <CustomNavHeader>
                   <StyledInput
                     hasGoBack
+                    goBackRoute={'Categories'}
                     placeholder={'Search Service'}
                     value={''}
                     onChange={(e) => console.log(e)}

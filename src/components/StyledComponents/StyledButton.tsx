@@ -47,6 +47,6 @@ const StyledPillButton = styled.TouchableOpacity<{ border?: string; bgColor?: st
   display: flex;
   align-items: center;
   justify-content: center;
-  border: ${({ border }) => border || 'initial'};
+  border: ${({ border }) => border || 'none'};
   background: ${({ theme, bgColor }) => bgColor || theme.colors.background.fifth};
 `;

@@ -117,3 +117,36 @@ export const allServices = [
     urlImage: 'https://ashenterprises.in/wp-content/uploads/2023/12/Ac-Service-In-Nagpur.jpg',
   },
 ];
+
+export const allOffers = [
+  {
+    id: 1,
+    title: 'Offer AC Service',
+    bgColor: '#EAF6EF',
+    offerPercentage: 25,
+  },
+  {
+    id: 2,
+    title: 'Offer AC Service',
+    bgColor: '#E9F6FC',
+    offerPercentage: 45,
+  },
+  {
+    id: 3,
+    title: 'Offer AC Service',
+    bgColor: '#88f2e3',
+    offerPercentage: 65,
+  },
+  {
+    id: 4,
+    title: 'Offer AC Service',
+    bgColor: '#f1f4c2',
+    offerPercentage: 85,
+  },
+  {
+    id: 5,
+    title: 'Offer AC Service',
+    bgColor: '#e5acca',
+    offerPercentage: 100,
+  },
+];
