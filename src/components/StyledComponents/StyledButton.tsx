@@ -5,9 +5,11 @@ interface Props {
   callback: () => void;
   children: React.ReactNode;
   selected?: boolean;
+  border?: string;
+  bgColor?: string;
 }
 
-export const StyledButton = ({ type, callback, children, selected }: Props) => {
+export const StyledButton = ({ type, callback, children, selected, border, bgColor }: Props) => {
   switch (type) {
     case 'theme-switcher':
       return (
@@ -16,7 +18,11 @@ export const StyledButton = ({ type, callback, children, selected }: Props) => {
         </StyledButtonSwitcher>
       );
     case 'pill':
-      return <StyledPillButton onPress={callback}>{children}</StyledPillButton>;
+      return (
+        <StyledPillButton border={border} bgColor={bgColor} onPress={callback}>
+          {children}
+        </StyledPillButton>
+      );
 
     default:
       break;
@@ -34,12 +40,13 @@ const StyledButtonSwitcher = styled.TouchableOpacity<{ selected: boolean }>`
     selected ? theme.colors.background.secondary : 'transparent'};
 `;
 
-const StyledPillButton = styled.TouchableOpacity`
+const StyledPillButton = styled.TouchableOpacity<{ border?: string; bgColor?: string }>`
   height: 32px;
   border-radius: 50px;
   width: 98px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: ${({ theme }) => theme.colors.background.fifth};
+  border: ${({ border }) => border || 'none'};
+  background: ${({ theme, bgColor }) => bgColor || theme.colors.background.fifth};
 `;

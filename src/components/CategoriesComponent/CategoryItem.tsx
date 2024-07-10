@@ -12,7 +12,7 @@ export type ItemProps = {
 export const CategoryItem = ({ item, callback }: ItemProps) => {
   return (
     <SimpleFlexColumn style={styles.simpleFlexColumn}>
-      <StyledItemContent bgColor={item.bgColor} onPress={callback}>
+      <StyledItemContent bgColor={item.bgColor} borderColor={item?.borderColor} onPress={callback}>
         <Image source={item.imageUrl} style={styles.image} />
       </StyledItemContent>
       <StyledText fontWeight={500} fontSize={15}>
@@ -22,12 +22,12 @@ export const CategoryItem = ({ item, callback }: ItemProps) => {
   );
 };
 
-const StyledItemContent = styled.TouchableOpacity<{ bgColor: string }>`
+const StyledItemContent = styled.TouchableOpacity<{ bgColor: string; borderColor?: string }>`
   width: 72px;
   height: 72px;
   border-radius: 50px;
+  border: ${({ borderColor }) => (borderColor ? '1px solid ' + borderColor : 'none')};
   background: ${({ bgColor }) => bgColor};
-  margin-vertical: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
