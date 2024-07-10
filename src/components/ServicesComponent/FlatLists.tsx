@@ -1,3 +1,4 @@
+import { globalStyleSheet } from '@/styles/globalStyleSheet';
 import { ServiceItemType } from '@/types';
 import { FlatList, View } from 'react-native';
 import { HorizontalServiceItem, SquareServiceItem } from './ServiceItems';
@@ -21,10 +22,7 @@ export const GridFlatList = ({ allServices }: { allServices: ServiceItemType[] }
     <FlatList
       numColumns={3}
       data={allServices}
-      columnWrapperStyle={{
-        flex: 1,
-        justifyContent: 'space-around',
-      }}
+      columnWrapperStyle={globalStyleSheet.columnWrapperStyle}
       keyExtractor={(item) => item.id}
       renderItem={({ item }) => (
         <View>

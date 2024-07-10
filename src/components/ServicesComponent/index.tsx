@@ -1,5 +1,6 @@
 import { allServices } from '@/constants/data';
 import { NavProps } from '@/routes/Drawer';
+import { globalStyleSheet } from '@/styles/globalStyleSheet';
 import { CategoryItemType } from '@/types';
 import { Feather, MaterialIcons } from '@expo/vector-icons';
 import React, { useState } from 'react';
@@ -22,12 +23,12 @@ export const ServicesComponent = (props: NavProps) => {
   };
 
   return (
-    <SimpleFlexColumn style={{ gap: 12, flex: 1 }}>
-      <SimpleFlexRow style={{ justifyContent: 'space-between' }}>
+    <SimpleFlexColumn style={{ ...globalStyleSheet.gap12, ...globalStyleSheet.flex }}>
+      <SimpleFlexRow style={globalStyleSheet.spaceBetween}>
         <Title fontWeight={600} fontSize={18}>
           {category.title}
         </Title>
-        <SimpleFlexRow style={{ gap: 8 }}>
+        <SimpleFlexRow style={globalStyleSheet.gap8}>
           <StyledGridButton
             style={colorScheme === 'light' && viewMode === 'list' && styles.button}
             isFocused={viewMode === 'list'}

@@ -8,7 +8,7 @@ import { Service } from '@/screens/Services';
 import { AntDesign } from '@expo/vector-icons';
 import { createDrawerNavigator, DrawerNavigationProp } from '@react-navigation/drawer';
 import { NavigationContainer, ParamListBase, RouteProp } from '@react-navigation/native';
-import { StatusBar, TouchableOpacity } from 'react-native';
+import { StatusBar, StyleSheet, TouchableOpacity } from 'react-native';
 import { useTheme } from 'styled-components';
 
 const Drawer = createDrawerNavigator();
@@ -58,7 +58,7 @@ export function DrawerNavigation(props: NavProps) {
           options={{
             header: ({ navigation }) => (
               <CustomNavHeader>
-                <TouchableOpacity onPress={() => navigation.goBack()} style={{ padding: 12 }}>
+                <TouchableOpacity onPress={() => navigation.goBack()} style={styles.padding}>
                   <AntDesign
                     name="arrowleft"
                     size={24}
@@ -113,3 +113,7 @@ export function DrawerNavigation(props: NavProps) {
     </NavigationContainer>
   );
 }
+
+const styles = StyleSheet.create({
+  padding: { padding: 12 },
+});

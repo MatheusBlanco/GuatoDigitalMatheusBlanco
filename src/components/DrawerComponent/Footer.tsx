@@ -1,3 +1,4 @@
+import { globalStyleSheet } from '@/styles/globalStyleSheet';
 import { Feather, FontAwesome5, MaterialIcons } from '@expo/vector-icons';
 import { Appearance, useColorScheme, View } from 'react-native';
 import styled, { useTheme } from 'styled-components/native';
@@ -16,7 +17,7 @@ export const Footer = () => {
         <SimpleFlexRow>
           <DrawerFooterDivider />
         </SimpleFlexRow>
-        <SimpleFlexRow style={{ gap: 12 }}>
+        <SimpleFlexRow style={globalStyleSheet.gap12}>
           <FontAwesome5
             name="question-circle"
             size={20}
@@ -31,7 +32,7 @@ export const Footer = () => {
           type="theme-switcher"
           callback={() => setColorScheme('light')}
         >
-          <SimpleFlexRow style={{ gap: 8 }}>
+          <SimpleFlexRow style={globalStyleSheet.gap8}>
             <MaterialIcons
               name="wb-sunny"
               size={21}
@@ -45,7 +46,7 @@ export const Footer = () => {
           type="theme-switcher"
           callback={() => setColorScheme('dark')}
         >
-          <SimpleFlexRow style={{ gap: 8 }}>
+          <SimpleFlexRow style={globalStyleSheet.gap8}>
             <Feather name="moon" size={21} color={theme.colors.text.themeConditional.primary} />
             <StyledText>Dark</StyledText>
           </SimpleFlexRow>

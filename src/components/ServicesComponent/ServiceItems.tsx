@@ -1,7 +1,8 @@
+import { globalStyleSheet } from '@/styles/globalStyleSheet';
 import { ServiceItemType } from '@/types';
 import { Entypo } from '@expo/vector-icons';
 import React from 'react';
-import { Image } from 'react-native';
+import { Image, StyleSheet } from 'react-native';
 import { useTheme } from 'styled-components';
 import styled from 'styled-components/native';
 import { SimpleFlexColumn, SimpleFlexRow } from '../StyledComponents/SimpleFlex';
@@ -13,14 +14,11 @@ interface Props {
 
 export const SquareServiceItem = ({ service }: Props) => {
   return (
-    <SimpleFlexColumn style={{ gap: 10, marginBottom: 12 }}>
-      <SimpleFlexColumn style={{ justifyContent: 'space-between' }}>
-        <SimpleFlexColumn style={{ gap: 16, alignItems: 'center' }}>
-          <Image
-            source={{ uri: service.urlImage }}
-            style={{ width: 105, height: 116, borderRadius: 8 }}
-          />
-          <SimpleFlexColumn style={{ gap: 7, alignSelf: 'flex-start' }}>
+    <SimpleFlexColumn style={{ ...globalStyleSheet.gap10, marginBottom: 12 }}>
+      <SimpleFlexColumn style={globalStyleSheet.spaceBetween}>
+        <SimpleFlexColumn style={{ ...globalStyleSheet.gap16, ...globalStyleSheet.alignCenter }}>
+          <Image source={{ uri: service.urlImage }} style={styles.image} />
+          <SimpleFlexColumn style={{ ...globalStyleSheet.gap7, ...styles.view }}>
             <ServiceInfo service={service} />
           </SimpleFlexColumn>
         </SimpleFlexColumn>
@@ -32,14 +30,11 @@ export const SquareServiceItem = ({ service }: Props) => {
 export const HorizontalServiceItem = ({ service }: Props) => {
   const theme = useTheme();
   return (
-    <SimpleFlexColumn style={{ gap: 10 }}>
-      <SimpleFlexRow align="flex-start" style={{ justifyContent: 'space-between' }}>
-        <SimpleFlexRow style={{ gap: 16, alignItems: 'center' }}>
-          <Image
-            source={{ uri: service.urlImage }}
-            style={{ width: 105, height: 116, borderRadius: 8 }}
-          />
-          <SimpleFlexColumn style={{ gap: 7 }}>
+    <SimpleFlexColumn style={globalStyleSheet.gap10}>
+      <SimpleFlexRow align="flex-start" style={globalStyleSheet.spaceBetween}>
+        <SimpleFlexRow style={{ ...globalStyleSheet.gap16, ...globalStyleSheet.alignCenter }}>
+          <Image source={{ uri: service.urlImage }} style={styles.image} />
+          <SimpleFlexColumn style={globalStyleSheet.gap7}>
             <ServiceInfo service={service} />
           </SimpleFlexColumn>
         </SimpleFlexRow>
@@ -58,3 +53,8 @@ const Divider = styled.View`
   border-radius: 2px;
   margin-bottom: 10px;
 `;
+
+const styles = StyleSheet.create({
+  view: { alignSelf: 'flex-start' },
+  image: { width: 105, height: 116, borderRadius: 8 },
+});
