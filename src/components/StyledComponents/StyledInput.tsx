@@ -1,3 +1,4 @@
+import { globalStyleSheet } from '@/styles/globalStyleSheet';
 import AntDesign from '@expo/vector-icons/build/AntDesign';
 import { DrawerNavigationProp } from '@react-navigation/drawer';
 import { ParamListBase } from '@react-navigation/native';
@@ -38,7 +39,7 @@ export const StyledInput = ({
     case 'search':
       return (
         <StyledSearchInput>
-          <SimpleFlexRow style={{ gap: 18 }}>
+          <SimpleFlexRow style={globalStyleSheet.gap18}>
             {hasGoBack && (
               <TouchableOpacity
                 onPress={() => {
@@ -71,7 +72,7 @@ export const StyledInput = ({
       );
     case 'formType':
       return (
-        <SimpleFlexColumn style={{ gap: 8 }}>
+        <SimpleFlexColumn style={globalStyleSheet.gap8}>
           <StyledText fontWeight={600} fontSize={15}>
             {label}
           </StyledText>

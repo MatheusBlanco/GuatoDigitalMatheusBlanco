@@ -6,20 +6,15 @@ import { StyledButton } from '@/components/StyledComponents/StyledButton';
 import { StyledMainContainer } from '@/components/StyledComponents/StyledMainContainer';
 import { StyledText } from '@/components/StyledComponents/StyledText';
 import { Title } from '@/components/StyledComponents/Title';
-import { RootStackParamList } from '@/types';
+import { globalStyleSheet } from '@/styles/globalStyleSheet';
 import { Octicons } from '@expo/vector-icons';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useTheme } from 'styled-components/native';
 
-export function Profile({
-  navigation,
-}: {
-  navigation: NativeStackNavigationProp<RootStackParamList, 'Home'>;
-}) {
+export function Profile() {
   const theme = useTheme();
   return (
     <Container>
-      <SimpleFlexRow style={{ justifyContent: 'space-between' }}>
+      <SimpleFlexRow style={globalStyleSheet.spaceBetween}>
         <Title fontSize={24} fontWeight={700}>
           Profile
         </Title>
@@ -29,7 +24,7 @@ export function Profile({
             alert('Function not implemented.');
           }}
         >
-          <SimpleFlexRow style={{ gap: 4 }}>
+          <SimpleFlexRow style={globalStyleSheet.gap4}>
             <StyledText fontWeight={500} fontSize={12} color="sixth">
               Edit profile
             </StyledText>

@@ -1,5 +1,5 @@
 import { CategoryItemType } from '@/types';
-import { Image } from 'react-native';
+import { Image, StyleSheet } from 'react-native';
 import styled from 'styled-components/native';
 import { SimpleFlexColumn } from '../StyledComponents/SimpleFlex';
 import { StyledText } from '../StyledComponents/StyledText';
@@ -11,9 +11,9 @@ export type ItemProps = {
 
 export const CategoryItem = ({ item, callback }: ItemProps) => {
   return (
-    <SimpleFlexColumn style={{ gap: 2, alignItems: 'center' }}>
+    <SimpleFlexColumn style={styles.simpleFlexColumn}>
       <StyledItemContent bgColor={item.bgColor} onPress={callback}>
-        <Image source={item.imageUrl} style={{ height: 32, width: 32 }} />
+        <Image source={item.imageUrl} style={styles.image} />
       </StyledItemContent>
       <StyledText fontWeight={500} fontSize={15}>
         {item.title}
@@ -32,3 +32,8 @@ const StyledItemContent = styled.TouchableOpacity<{ bgColor: string }>`
   align-items: center;
   justify-content: center;
 `;
+
+const styles = StyleSheet.create({
+  simpleFlexColumn: { gap: 2, alignItems: 'center' },
+  image: { height: 32, width: 32 },
+});

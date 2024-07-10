@@ -1,4 +1,5 @@
 import { allCategories } from '@/constants/data';
+import { globalStyleSheet } from '@/styles/globalStyleSheet';
 import { DrawerNavigationProp } from '@react-navigation/drawer';
 import { ParamListBase } from '@react-navigation/native';
 import { FlatList, View } from 'react-native';
@@ -13,10 +14,7 @@ export const CategoriesComponent = ({ navigation }: Props) => {
     <FlatList
       numColumns={3}
       data={allCategories}
-      columnWrapperStyle={{
-        flex: 1,
-        justifyContent: 'space-around',
-      }}
+      columnWrapperStyle={globalStyleSheet.columnWrapperStyle}
       renderItem={({ item }) => (
         <View>
           <CategoryItem item={item} callback={() => navigation.navigate('Services', item)} />

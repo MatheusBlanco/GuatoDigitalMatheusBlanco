@@ -1,3 +1,4 @@
+import { globalStyleSheet } from '@/styles/globalStyleSheet';
 import { ServiceItemType } from '@/types';
 import { AntDesign } from '@expo/vector-icons';
 import React from 'react';
@@ -15,7 +16,7 @@ export const ServiceInfo = ({ service }: Props) => {
 
   return (
     <>
-      <SimpleFlexRow style={{ gap: 5 }}>
+      <SimpleFlexRow style={globalStyleSheet.gap5}>
         <AntDesign name="star" size={12} color={theme.colors.background.fixed.yellow} />
         <SimpleFlexRow>
           <StyledText fontWeight={700} fontSize={12}>

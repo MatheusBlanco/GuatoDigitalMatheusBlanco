@@ -1,4 +1,5 @@
-import { DrawerNavigation } from '@/routes/Drawer';
+import { DrawerNavigation, NavProps } from '@/routes/Drawer';
+import { globalStyleSheet } from '@/styles/globalStyleSheet';
 import { darkStyles, lightStyles } from '@/styles/theme';
 import {
   Inter_100Thin,
@@ -12,11 +13,12 @@ import {
   Inter_900Black,
   useFonts,
 } from '@expo-google-fonts/inter';
+import { JSX } from 'react';
 import { SafeAreaView, useColorScheme } from 'react-native';
 import 'react-native-gesture-handler';
 import { ThemeProvider } from 'styled-components';
 
-function App() {
+function App(props: JSX.IntrinsicAttributes & NavProps) {
   const colorScheme = useColorScheme();
 
   const [fontsLoaded] = useFonts({
@@ -32,9 +34,9 @@ function App() {
   });
 
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <SafeAreaView style={globalStyleSheet.flex}>
       <ThemeProvider theme={colorScheme === 'dark' ? darkStyles : lightStyles}>
-        <DrawerNavigation />
+        <DrawerNavigation {...props} />
       </ThemeProvider>
     </SafeAreaView>
   );

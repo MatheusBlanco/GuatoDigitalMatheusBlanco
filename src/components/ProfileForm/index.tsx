@@ -1,3 +1,4 @@
+import { globalStyleSheet } from '@/styles/globalStyleSheet';
 import { Image, ScrollView } from 'react-native';
 import { SimpleFlexColumn, SimpleFlexRow } from '../StyledComponents/SimpleFlex';
 import { StyledInput } from '../StyledComponents/StyledInput';
@@ -6,11 +7,11 @@ import { StyledText } from '../StyledComponents/StyledText';
 export const ProfileForm = () => {
   return (
     <ScrollView>
-      <SimpleFlexColumn style={{ gap: 24 }}>
+      <SimpleFlexColumn style={globalStyleSheet.gap24}>
         <StyledInput
           leftIcon
           icon={
-            <SimpleFlexRow style={{ gap: 8 }}>
+            <SimpleFlexRow style={globalStyleSheet.gap8}>
               <Image
                 height={24}
                 width={24}
