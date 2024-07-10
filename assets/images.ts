@@ -1,0 +1,9 @@
+export const ac = require('./ac.png');
+export const beauty = require('./beauty.png');
+export const appliance = require('./appliance.png');
+export const painting = require('./painting.png');
+export const cleaning = require('./cleaning.png');
+export const plumbing = require('./plumbing.png');
+export const electronics = require('./electronics.png');
+export const shifting = require('./shifting.png');
+export const salon = require('./salon.png');
