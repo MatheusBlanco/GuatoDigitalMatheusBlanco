@@ -1,7 +1,9 @@
 import { DrawerComponent } from '@/components/DrawerComponent';
+import { HomeHeader } from '@/components/DrawerComponent/ScreenHeaders';
 import { CustomNavHeader } from '@/components/StyledComponents/CustomNavHeader';
 import { StyledInput } from '@/components/StyledComponents/StyledInput';
 import { Categories } from '@/screens/Categories';
+import { ExtraPage } from '@/screens/ExtraPage';
 import { Home } from '@/screens/Home';
 import { Profile } from '@/screens/Profile';
 import { Service } from '@/screens/Services';
@@ -50,6 +52,7 @@ export function DrawerNavigation(props: NavProps) {
               color: theme.colors.text.themeConditional.primary,
               fontWeight: 'bold',
             },
+            header: ({ navigation }) => <HomeHeader navigation={navigation} />,
           }}
         />
         <Drawer.Screen
@@ -107,6 +110,20 @@ export function DrawerNavigation(props: NavProps) {
                   />
                 </CustomNavHeader>
               );
+            },
+          }}
+        />
+        <Drawer.Screen
+          name="ExtraPage"
+          component={ExtraPage}
+          options={{
+            title: 'Brazil News',
+            headerStyle: {
+              backgroundColor: theme.colors.background.secondary,
+            },
+            headerTitleStyle: {
+              color: theme.colors.text.themeConditional.primary,
+              fontWeight: 'bold',
             },
           }}
         />

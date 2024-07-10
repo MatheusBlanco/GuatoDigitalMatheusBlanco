@@ -1,4 +1,5 @@
 import { DrawerNavigation, NavProps } from '@/routes/Drawer';
+import { queryClient } from '@/services/reactQuery';
 import { globalStyleSheet } from '@/styles/globalStyleSheet';
 import { darkStyles, lightStyles } from '@/styles/theme';
 import {
@@ -13,9 +14,11 @@ import {
   Inter_900Black,
   useFonts,
 } from '@expo-google-fonts/inter';
+import { QueryClientProvider } from '@tanstack/react-query';
 import { JSX } from 'react';
 import { SafeAreaView, useColorScheme } from 'react-native';
 import 'react-native-gesture-handler';
+import 'react-native-reanimated';
 import { ThemeProvider } from 'styled-components';
 
 function App(props: JSX.IntrinsicAttributes & NavProps) {
@@ -34,11 +37,13 @@ function App(props: JSX.IntrinsicAttributes & NavProps) {
   });
 
   return (
-    <SafeAreaView style={globalStyleSheet.flex}>
-      <ThemeProvider theme={colorScheme === 'dark' ? darkStyles : lightStyles}>
-        <DrawerNavigation {...props} />
-      </ThemeProvider>
-    </SafeAreaView>
+    <QueryClientProvider client={queryClient}>
+      <SafeAreaView style={globalStyleSheet.flex}>
+        <ThemeProvider theme={colorScheme === 'dark' ? darkStyles : lightStyles}>
+          <DrawerNavigation {...props} />
+        </ThemeProvider>
+      </SafeAreaView>
+    </QueryClientProvider>
   );
 }
 
