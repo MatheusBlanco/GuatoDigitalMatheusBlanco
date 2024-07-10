@@ -11,34 +11,40 @@ interface Props {
   service: ServiceItemType;
 }
 
-export const ServiceInfo = ({ service }: Props) => {
+export const ServiceInfo = ({ service, onlyTitle }: { onlyTitle?: boolean } & Props) => {
   const theme = useTheme();
 
   return (
     <>
-      <SimpleFlexRow style={globalStyleSheet.gap5}>
-        <AntDesign name="star" size={12} color={theme.colors.background.fixed.yellow} />
-        <SimpleFlexRow>
-          <StyledText fontWeight={700} fontSize={12}>
-            {service.rating}
-          </StyledText>
-          <StyledText fontWeight={700} fontSize={12} fixedColor>
-            {' '}
-            {'(' + service.reviewNumber + ')'}
-          </StyledText>
+      {!onlyTitle && (
+        <SimpleFlexRow style={globalStyleSheet.gap5}>
+          <AntDesign name="star" size={12} color={theme.colors.background.fixed.yellow} />
+          <SimpleFlexRow>
+            <StyledText fontWeight={700} fontSize={12}>
+              {service.rating}
+            </StyledText>
+            <StyledText fontWeight={700} fontSize={12} fixedColor>
+              {' '}
+              {'(' + service.reviewNumber + ')'}
+            </StyledText>
+          </SimpleFlexRow>
         </SimpleFlexRow>
-      </SimpleFlexRow>
+      )}
       <StyledText fontWeight={600} fontSize={14}>
         {service.title}
       </StyledText>
-      <StyledText fontWeight={500} fontSize={12} fixedColor>
-        Starts from
-      </StyledText>
-      <PriceTag>
-        <StyledText fontWeight={700} fontSize={12} fixedColor color="dark">
-          ${service.price}
-        </StyledText>
-      </PriceTag>
+      {!onlyTitle && (
+        <>
+          <StyledText fontWeight={500} fontSize={12} fixedColor>
+            Starts from
+          </StyledText>
+          <PriceTag>
+            <StyledText fontWeight={700} fontSize={12} fixedColor color="dark">
+              ${service.price}
+            </StyledText>
+          </PriceTag>
+        </>
+      )}
     </>
   );
 };

@@ -20,7 +20,7 @@ export const ColumnsFlatList = ({ allServices }: { allServices: ServiceItemType[
 export const GridFlatList = ({ allServices }: { allServices: ServiceItemType[] }) => {
   return (
     <FlatList
-      numColumns={3}
+      numColumns={2}
       data={allServices}
       columnWrapperStyle={globalStyleSheet.columnWrapperStyle}
       keyExtractor={(item) => item.id}

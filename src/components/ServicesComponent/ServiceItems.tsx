@@ -12,14 +12,16 @@ interface Props {
   service: ServiceItemType;
 }
 
-export const SquareServiceItem = ({ service }: Props) => {
+export const SquareServiceItem = ({ service, onlyTitle }: { onlyTitle?: boolean } & Props) => {
   return (
     <SimpleFlexColumn style={{ ...globalStyleSheet.gap10, marginBottom: 12 }}>
       <SimpleFlexColumn style={globalStyleSheet.spaceBetween}>
-        <SimpleFlexColumn style={{ ...globalStyleSheet.gap16, ...globalStyleSheet.alignCenter }}>
-          <Image source={{ uri: service.urlImage }} style={styles.image} />
-          <SimpleFlexColumn style={{ ...globalStyleSheet.gap7, ...styles.view }}>
-            <ServiceInfo service={service} />
+        <SimpleFlexColumn style={{ ...globalStyleSheet.gap12, ...globalStyleSheet.alignCenter }}>
+          <Image source={{ uri: service.urlImage }} style={styles.verticalItem} />
+          <SimpleFlexColumn
+            style={{ ...globalStyleSheet.gap7, ...styles[onlyTitle ? 'center' : 'flexStart'] }}
+          >
+            <ServiceInfo service={service} onlyTitle={onlyTitle} />
           </SimpleFlexColumn>
         </SimpleFlexColumn>
       </SimpleFlexColumn>
@@ -33,7 +35,7 @@ export const HorizontalServiceItem = ({ service }: Props) => {
     <SimpleFlexColumn style={globalStyleSheet.gap10}>
       <SimpleFlexRow align="flex-start" style={globalStyleSheet.spaceBetween}>
         <SimpleFlexRow style={{ ...globalStyleSheet.gap16, ...globalStyleSheet.alignCenter }}>
-          <Image source={{ uri: service.urlImage }} style={styles.image} />
+          <Image source={{ uri: service.urlImage }} style={styles.horizontalItem} />
           <SimpleFlexColumn style={globalStyleSheet.gap7}>
             <ServiceInfo service={service} />
           </SimpleFlexColumn>
@@ -55,6 +57,8 @@ const Divider = styled.View`
 `;
 
 const styles = StyleSheet.create({
-  view: { alignSelf: 'flex-start' },
-  image: { width: 105, height: 116, borderRadius: 8 },
+  flexStart: { alignSelf: 'flex-start' },
+  center: { alignSelf: 'center' },
+  horizontalItem: { width: 105, height: 116, borderRadius: 8 },
+  verticalItem: { width: 139, height: 154, borderRadius: 8 },
 });

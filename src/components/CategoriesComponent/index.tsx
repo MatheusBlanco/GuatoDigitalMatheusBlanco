@@ -2,7 +2,8 @@ import { allCategories } from '@/constants/data';
 import { globalStyleSheet } from '@/styles/globalStyleSheet';
 import { DrawerNavigationProp } from '@react-navigation/drawer';
 import { ParamListBase } from '@react-navigation/native';
-import { FlatList, View } from 'react-native';
+import { FlatList } from 'react-native';
+import styled from 'styled-components/native';
 import { CategoryItem } from './CategoryItem';
 
 interface Props {
@@ -16,10 +17,14 @@ export const CategoriesComponent = ({ navigation }: Props) => {
       data={allCategories}
       columnWrapperStyle={globalStyleSheet.columnWrapperStyle}
       renderItem={({ item }) => (
-        <View>
+        <MarginedView>
           <CategoryItem item={item} callback={() => navigation.navigate('Services', item)} />
-        </View>
+        </MarginedView>
       )}
     />
   );
 };
+
+const MarginedView = styled.View`
+  margin-vertical: 24px;
+`;

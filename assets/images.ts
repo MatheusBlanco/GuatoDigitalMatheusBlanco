@@ -7,3 +7,4 @@ export const plumbing = require('./plumbing.png');
 export const electronics = require('./electronics.png');
 export const shifting = require('./shifting.png');
 export const salon = require('./salon.png');
+export const arrowRight = require('./arrow-right.png');

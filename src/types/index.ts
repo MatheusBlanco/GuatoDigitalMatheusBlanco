@@ -1,7 +1,8 @@
 export type CategoryItemType = {
   title: string;
   bgColor: string;
-  imageUrl: any;
+  imageUrl: Object;
+  borderColor?: string;
 };
 
 export type ServiceItemType = {
