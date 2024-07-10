@@ -1,20 +1,18 @@
+import { CategoryItemType } from '@/types';
 import { Image } from 'react-native';
 import styled from 'styled-components/native';
 import { SimpleFlexColumn } from '../StyledComponents/SimpleFlex';
 import { StyledText } from '../StyledComponents/StyledText';
 
-type ItemProps = {
-  item: {
-    title: string;
-    bgColor: string;
-    imageUrl: any;
-  };
+export type ItemProps = {
+  item: CategoryItemType;
+  callback: () => void;
 };
 
-export const CategoryItem = ({ item }: ItemProps) => {
+export const CategoryItem = ({ item, callback }: ItemProps) => {
   return (
     <SimpleFlexColumn style={{ gap: 2, alignItems: 'center' }}>
-      <StyledItemContent bgColor={item.bgColor}>
+      <StyledItemContent bgColor={item.bgColor} onPress={callback}>
         <Image source={item.imageUrl} style={{ height: 32, width: 32 }} />
       </StyledItemContent>
       <StyledText fontWeight={500} fontSize={15}>

@@ -66,3 +66,54 @@ export const allCategories = [
     imageUrl: salon,
   },
 ];
+
+export const allServices = [
+  {
+    id: 'zfp64G2MiDcH3UY-0',
+    title: 'AC Repair',
+    rating: 4.9,
+    reviewNumber: 90,
+    price: 90,
+    urlImage: 'https://ashenterprises.in/wp-content/uploads/2023/12/Ac-Service-In-Nagpur.jpg',
+  },
+  {
+    id: 'zfp64G2MiDcH3UY-1',
+    title: 'AC Repair',
+    rating: 4.9,
+    reviewNumber: 90,
+    price: 90,
+    urlImage: 'https://ashenterprises.in/wp-content/uploads/2023/12/Ac-Service-In-Nagpur.jpg',
+  },
+  {
+    id: 'zfp64G2MiDcH3UY-2',
+    title: 'AC Repair',
+    rating: 4.9,
+    reviewNumber: 90,
+    price: 90,
+    urlImage: 'https://ashenterprises.in/wp-content/uploads/2023/12/Ac-Service-In-Nagpur.jpg',
+  },
+  {
+    id: 'zfp64G2MiDcH3UY-3',
+    title: 'AC Repair',
+    rating: 4.9,
+    reviewNumber: 90,
+    price: 90,
+    urlImage: 'https://ashenterprises.in/wp-content/uploads/2023/12/Ac-Service-In-Nagpur.jpg',
+  },
+  {
+    id: 'zfp64G2MiDcH3UY-4',
+    title: 'AC Repair',
+    rating: 4.9,
+    reviewNumber: 90,
+    price: 90,
+    urlImage: 'https://ashenterprises.in/wp-content/uploads/2023/12/Ac-Service-In-Nagpur.jpg',
+  },
+  {
+    id: 'zfp64G2MiDcH3UY-5',
+    title: 'AC Repair',
+    rating: 4.9,
+    reviewNumber: 90,
+    price: 90,
+    urlImage: 'https://ashenterprises.in/wp-content/uploads/2023/12/Ac-Service-In-Nagpur.jpg',
+  },
+];
