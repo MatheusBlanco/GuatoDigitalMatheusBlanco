@@ -33,6 +33,7 @@ export const lightStyles = {
       fifth: '#FFFFFF',
       sixth: '#FFFFFF26',
       seventh: '#F5F5F5',
+      eighth: '#25283C',
     },
     border: {
       primary: '#F2F2F2',
@@ -67,6 +68,7 @@ export const darkStyles = {
       fifth: '#2F3643',
       sixth: '#29303C',
       seventh: '#2F3643',
+      eighth: '#FFFFFF',
     },
     border: {
       primary: '#F2F2F210',

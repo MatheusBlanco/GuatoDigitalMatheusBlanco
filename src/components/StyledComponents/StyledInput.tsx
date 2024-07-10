@@ -1,6 +1,6 @@
-import { RootStackParamList } from '@/types';
 import AntDesign from '@expo/vector-icons/build/AntDesign';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { DrawerNavigationProp } from '@react-navigation/drawer';
+import { ParamListBase } from '@react-navigation/native';
 import { TouchableOpacity } from 'react-native';
 import styled, { useTheme } from 'styled-components/native';
 import { SimpleFlexColumn, SimpleFlexRow } from './SimpleFlex';
@@ -11,7 +11,7 @@ interface Props {
   callback?: () => void;
   hasGoBack?: boolean;
   goBackCallback?: () => void;
-  navigation?: NativeStackNavigationProp<RootStackParamList, 'Home'>;
+  navigation?: DrawerNavigationProp<ParamListBase, string, undefined>;
   placeholder: string;
   label?: string;
   leftIcon?: boolean;
@@ -40,7 +40,15 @@ export const StyledInput = ({
         <StyledSearchInput>
           <SimpleFlexRow style={{ gap: 18 }}>
             {hasGoBack && (
-              <TouchableOpacity onPress={() => goBackCallback || navigation?.goBack()}>
+              <TouchableOpacity
+                onPress={() => {
+                  if (goBackCallback !== undefined) {
+                    goBackCallback;
+                  } else {
+                    navigation?.goBack();
+                  }
+                }}
+              >
                 <AntDesign
                   name="arrowleft"
                   size={24}
@@ -89,6 +97,7 @@ const StyledSearchInput = styled.View`
   align-items: center;
   border-radius: 10px;
   height: 48px;
+  width: 100%;
   padding: 9px 13px 9px 13px;
   background: ${({ theme }) => theme.colors.background.tertiary};
   border: 1px solid ${({ theme }) => theme.colors.border.primary};

@@ -1,4 +1,4 @@
-import { Ionicons } from '@expo/vector-icons';
+import { Ionicons, MaterialIcons } from '@expo/vector-icons';
 import { DrawerContentComponentProps, DrawerItem } from '@react-navigation/drawer';
 import { ScrollView } from 'react-native';
 import styled, { useTheme } from 'styled-components/native';
@@ -30,6 +30,20 @@ export const Items = (props: DrawerContentComponentProps) => {
         )}
         label={() => <DrawerTitle focused={true}>{'Home'}</DrawerTitle>}
         onPress={() => navigate('Home')}
+      />
+      <DrawerItem
+        activeBackgroundColor={theme.colors.background.fifth}
+        inactiveBackgroundColor={theme.colors.background.fourth}
+        style={itemStyle}
+        icon={({ focused }) => (
+          <MaterialIcons
+            name="category"
+            size={24}
+            color={theme.colors.text.themeConditional[focused ? 'sixth' : 'seventh']}
+          />
+        )}
+        label={() => <DrawerTitle focused={false}>{'Categories'}</DrawerTitle>}
+        onPress={() => navigate('Categories')}
       />
     </ScrollView>
   );

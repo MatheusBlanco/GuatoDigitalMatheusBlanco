@@ -1,11 +1,13 @@
 import { DrawerComponent } from '@/components/DrawerComponent';
 import { CustomNavHeader } from '@/components/StyledComponents/CustomNavHeader';
+import { StyledInput } from '@/components/StyledComponents/StyledInput';
+import { Categories } from '@/screens/Categories';
 import { Home } from '@/screens/Home';
 import { Profile } from '@/screens/Profile';
 import { AntDesign } from '@expo/vector-icons';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
-import { TouchableOpacity } from 'react-native';
+import { StatusBar, TouchableOpacity } from 'react-native';
 import { useTheme } from 'styled-components';
 
 const Drawer = createDrawerNavigator();
@@ -15,10 +17,12 @@ export function DrawerNavigation() {
 
   return (
     <NavigationContainer>
+      <StatusBar animated={true} backgroundColor={theme.colors.background.secondary} />
       <Drawer.Navigator
         initialRouteName="Home"
         drawerContent={(props) => <DrawerComponent {...props} />}
         screenOptions={{
+          headerTintColor: theme.colors.background.eighth,
           drawerStyle: {
             backgroundColor: theme.colors.background.fourth,
             width: 303,
@@ -36,9 +40,8 @@ export function DrawerNavigation() {
             headerStyle: {
               backgroundColor: theme.colors.background.secondary,
             },
-            headerTintColor: '#fff',
             headerTitleStyle: {
-              color: theme.colors.text.themeConditional.tertiary,
+              color: theme.colors.text.themeConditional.primary,
               fontWeight: 'bold',
             },
           }}
@@ -58,6 +61,27 @@ export function DrawerNavigation() {
                 </TouchableOpacity>
               </CustomNavHeader>
             ),
+          }}
+        />
+        <Drawer.Screen
+          name="Categories"
+          component={Categories}
+          options={{
+            header: ({ navigation }) => {
+              console.log(navigation.canGoBack);
+              return (
+                <CustomNavHeader>
+                  <StyledInput
+                    hasGoBack
+                    placeholder={'Search Category'}
+                    value={''}
+                    onChange={(e) => console.log(e)}
+                    type="search"
+                    navigation={navigation}
+                  />
+                </CustomNavHeader>
+              );
+            },
           }}
         />
       </Drawer.Navigator>
