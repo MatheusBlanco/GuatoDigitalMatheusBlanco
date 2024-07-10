@@ -1,8 +1,14 @@
 import { allCategories } from '@/constants/data';
+import { DrawerNavigationProp } from '@react-navigation/drawer';
+import { ParamListBase } from '@react-navigation/native';
 import { FlatList, View } from 'react-native';
 import { CategoryItem } from './CategoryItem';
 
-export const CategoriesComponent = () => {
+interface Props {
+  navigation: DrawerNavigationProp<ParamListBase, string, undefined>;
+}
+
+export const CategoriesComponent = ({ navigation }: Props) => {
   return (
     <FlatList
       numColumns={3}
@@ -13,7 +19,7 @@ export const CategoriesComponent = () => {
       }}
       renderItem={({ item }) => (
         <View>
-          <CategoryItem item={item} />
+          <CategoryItem item={item} callback={() => navigation.navigate('Services', item)} />
         </View>
       )}
     />

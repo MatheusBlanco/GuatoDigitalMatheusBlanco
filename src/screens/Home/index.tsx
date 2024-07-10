@@ -2,16 +2,12 @@ import { Container } from '@/components/StyledComponents/Container';
 import { StyledInput } from '@/components/StyledComponents/StyledInput';
 import { StyledMainContainer } from '@/components/StyledComponents/StyledMainContainer';
 import { StyledText } from '@/components/StyledComponents/StyledText';
-import { RootStackParamList } from '@/types';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { NavProps } from '@/routes/Drawer';
 import { View } from 'react-native';
 import styled from 'styled-components/native';
 
-export function Home({
-  navigation,
-}: {
-  navigation: NativeStackNavigationProp<RootStackParamList, 'Home'>;
-}) {
+export function Home(props: NavProps) {
+  const { navigation } = props;
   return (
     <Container>
       <StyledMainContainer>

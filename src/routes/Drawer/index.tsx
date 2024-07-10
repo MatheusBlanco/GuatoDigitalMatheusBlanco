@@ -4,15 +4,21 @@ import { StyledInput } from '@/components/StyledComponents/StyledInput';
 import { Categories } from '@/screens/Categories';
 import { Home } from '@/screens/Home';
 import { Profile } from '@/screens/Profile';
+import { Service } from '@/screens/Services';
 import { AntDesign } from '@expo/vector-icons';
-import { createDrawerNavigator } from '@react-navigation/drawer';
-import { NavigationContainer } from '@react-navigation/native';
+import { createDrawerNavigator, DrawerNavigationProp } from '@react-navigation/drawer';
+import { NavigationContainer, ParamListBase, RouteProp } from '@react-navigation/native';
 import { StatusBar, TouchableOpacity } from 'react-native';
 import { useTheme } from 'styled-components';
 
 const Drawer = createDrawerNavigator();
 
-export function DrawerNavigation() {
+export interface NavProps {
+  route?: RouteProp<ParamListBase, string>;
+  navigation: DrawerNavigationProp<ParamListBase, string, undefined>;
+}
+
+export function DrawerNavigation(props: NavProps) {
   const theme = useTheme();
 
   return (
@@ -68,12 +74,31 @@ export function DrawerNavigation() {
           component={Categories}
           options={{
             header: ({ navigation }) => {
-              console.log(navigation.canGoBack);
               return (
                 <CustomNavHeader>
                   <StyledInput
                     hasGoBack
                     placeholder={'Search Category'}
+                    value={''}
+                    onChange={(e) => console.log(e)}
+                    type="search"
+                    navigation={navigation}
+                  />
+                </CustomNavHeader>
+              );
+            },
+          }}
+        />
+        <Drawer.Screen
+          name="Services"
+          component={Service}
+          options={{
+            header: ({ navigation }) => {
+              return (
+                <CustomNavHeader>
+                  <StyledInput
+                    hasGoBack
+                    placeholder={'Search Service'}
                     value={''}
                     onChange={(e) => console.log(e)}
                     type="search"

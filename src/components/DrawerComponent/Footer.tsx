@@ -65,7 +65,7 @@ const DrawerFooterDivider = styled.View`
   flex: 1;
   height: 2px;
   background: ${({ theme }) => theme.colors.background.fixed.gray};
-  borderr-radius: 2px;
+  border-radius: 2px;
   margin-bottom: 10px;
 `;
 

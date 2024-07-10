@@ -5,6 +5,8 @@ const fixedTheme = {
         violet: '#6759FF',
         gray: '#D1D3D420',
         pink: '#CABDFF',
+        green: '#B5E4CA',
+        yellow: '#FFC554',
       },
     },
     text: {
@@ -12,6 +14,8 @@ const fixedTheme = {
         primary: '#9A9FA5',
         secondary: '#9B9E9F',
         white: '#FFFFFF',
+        dark: '#1A1D1F',
+        gray: '#6F767E',
       },
     },
   },
@@ -34,6 +38,9 @@ export const lightStyles = {
       sixth: '#FFFFFF26',
       seventh: '#F5F5F5',
       eighth: '#25283C',
+      ninth: '#FCFCFC',
+      tenth: '#F7F7F7',
+      eleventh: '#EFEFEF',
     },
     border: {
       primary: '#F2F2F2',
@@ -69,6 +76,9 @@ export const darkStyles = {
       sixth: '#29303C',
       seventh: '#2F3643',
       eighth: '#FFFFFF',
+      ninth: '#29303C',
+      tenth: '#111926',
+      eleventh: '#434355',
     },
     border: {
       primary: '#F2F2F210',
